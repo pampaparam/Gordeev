@@ -1,1 +1,3 @@
 alias c="git add . && git commit -m upd && git push origin main"
+
+alias s="git status"
