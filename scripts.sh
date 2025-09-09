@@ -45,14 +45,12 @@ git config --list
 cd /
 git config --list
 git status
-git clone https://token@github.com/pampaparam/Gordeev.git
 ls
 cd ..
 ls
 cd ~
 ls
 git clone git@github.com/pampaparam/Gordeev.git
-git clone https://token@github.com/pampaparam/Gordeev.git
 ls
 cd Gordeev
 ls
@@ -65,7 +63,6 @@ ls
 cd Gordeev
 s
 cd Gordeev
-git clone https://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@github.com/pampaparam/Gordeev.git
 q
 exit
 ls
