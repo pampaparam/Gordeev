@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Gordeev/README.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
@@ -167,11 +167,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "24a657a2c6f1a563",
+  "active": "b766f053e25c9d23",
   "lastOpenFiles": [
-    "README.md",
-    "Gordeev/README.md",
     "Gordeev/scripts.sh",
+    "Gordeev/README.md",
     "Gordeev/Gordeev",
     "Gordeev"
   ]
