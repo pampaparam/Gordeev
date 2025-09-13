@@ -4,4 +4,6 @@
 
 - [Roadmap DevOps by unknown man](https://youtu.be/2FsmJrorp9Q?si=FB-ew2L4uOU33J2R)
 - Create virtual machine in web version Yandexcluod (Launch; Terminate)
--- Connect to Virtual Machine in Terminal  ssh -l ubuntu IP dynamic
+
+    - Connect to Virtual Machine in Terminal  ssh -l ubuntu IP dynamic
+    - 
