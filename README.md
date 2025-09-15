@@ -55,9 +55,12 @@
     ``yc help``
 # Create instance
     ``yc compute instance create \``
+    ``--name my-vm \``
+    ``hostname my-vm \``
     ``--create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \``
     ``--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \``
     ``--zone ru-central1-a``
+    ``--metadata ssh-keys="ubuntu:$(cat ~/.ssh/id_ed25519.pub)"
 ### in catalog web browser yc in "access right" add 5 roles
     `compute.disk.user`
     `compute.editor`
@@ -76,3 +79,15 @@
 
 ### Connect to VM with SSH
     ``ssh ubuntu@<external-ip>``
+### Stop-start-delete-reboot machine
+    ``yc compute instance stop <my_vm or id_vm>``
+    ``yc compute instance start <my_vm or id_vm>``
+    ``yc compute instance reboot <my_vm or id_vm>``
+### You can display a list of subnets and select the right
+    ``yc vpc subnet list``
+### Launch ssh-agent
+    ``eval "$(ssh-agent -s)"``
+### Add private key in agent
+    ``ssh-add ~/.ssh/id_ed25519``
+### Check it's done
+    ``ssh-add -l``
