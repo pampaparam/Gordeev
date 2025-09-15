@@ -56,7 +56,7 @@
 # Create instance
     ``yc compute instance create \``
     ``--name my-vm \``
-    ``hostname my-vm \``
+    ``--hostname my-vm \``
     ``--create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \``
     ``--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \``
     ``--zone ru-central1-a``
