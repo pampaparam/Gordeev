@@ -91,3 +91,73 @@
     ``ssh-add ~/.ssh/id_ed25519``
 ### Check it's done
     ``ssh-add -l``
+## Mise install CLI "brew"
+    ``brew install mise``
+### Mise exec and run
+    ``mise exec python@3 -- python``
+    this will download and install Python if it is not already installed
+Python 3.13.2
+#>>> ...
+### or run node 22:
+    ``mise exec node@22 -- node -v``
+    # v22.x.x
+###### [`mise x|exec`](https://mise.jdx.dev/cli/exec.html) is a powerful way to load the current `mise` context (tools & environment variables) without modifying your shell session or running ad-hoc commands with mise tools set. Installing [`tools`](https://mise.jdx.dev/dev-tools/) is as simple as running [`mise u|use`](https://mise.jdx.dev/cli/use.html)
+    ``mise use --global node@22``
+    # install node 22 and set it as the global default
+    ``mise exec -- node my-scripts.js``
+    # run my-scripts.js with node 22...
+    # if my-scripts.js can't open, maybe you have to install node.
+    # check that you have Node.js
+    ``node -v``
+    # if you don't have, have to install.
+    ``brew install node``
+    # Launch node
+    ``node``
+## Install go
+    ``mise use -g go@latest``
+## Install ruby
+    ``mise use -g ruby@latest``
+    # ruby may not install in the end, maybe you have to install missing dependencies
+    ``brew install zlib readline libyaml libffi``
+    # Check Xcode Command Line Tools
+    ``xcode-select --install``
+    # Launch installation with detailed diagnostic output
+    ``mise install ruby@latest --verbose``
+    
+# Docker
+## Install docker
+    ``brew install docker``
+    # [or you can install docker from website] (https://www.docker.com/products/docker-desktop/)
+### Check version
+    ``docker --version``
+### Check docker
+     ``docker run hello-world``
+### Launch new container  on ubuntu image
+    ``docker run -it ubuntu bash``
+    # you see command `root@<container_id>:/#`
+    # you can do
+    - ls
+    - pwd
+    - apt update
+    - ...
+     # for exit from container
+     ``exit`` or `Ctrl + D`
+ # How do exit out of container and don't stop him
+      `Ctrl + P, after Ctrl + Q`
+ # To reconnect to a running container
+    ``docker attach <container_id>``
+    # OR
+    ``docker exec -it <container_id> bash``
+## Check if container is running
+    ``docker ps``
+## View processes runing inside the container
+    ``docker top <container_id_or_name>``
+## View logs
+    ``docker logs <container_id_or_name>``
+
+## Command so that the user can execute Docker commands without using `sudo`
+    ``sudo usermod -aG docker $USER``
+      
+    
+
+    
