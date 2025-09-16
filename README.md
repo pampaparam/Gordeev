@@ -61,6 +61,24 @@
     ``--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \``
     ``--zone ru-central1-a``
     ``--metadata ssh-keys="ubuntu:$(cat ~/.ssh/id_ed25519.pub)"
+
+## View available list OS yandexcloud CLI
+     ``yc compute image list --folder-id standard-images --limit 0``
+### If you want to see only available image families (main categories), use:
+    ``yc compute image list --folder-id standard-images --limit 0 --jq '.[].family' | sort | uniq``
+    # example:
+         `ubuntu-2204-lts
+         ubuntu-2204-lts-oslogin
+         ubuntu-2204-lts-vgpu-v13
+         centos-8
+         windows-server-2019
+         ...`
+## To show all images from a specific family, use
+    ``yc compute image list --folder-id standard-images | grep <идентификатор_семейства>``
+    ``yc compute image list --folder-id standard-images | grep ubuntu-2204-lts``
+
+
+
 ### in catalog web browser yc in "access right" add 5 roles
     `compute.disk.user`
     `compute.editor`
