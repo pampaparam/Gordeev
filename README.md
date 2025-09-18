@@ -67,12 +67,16 @@
 ### If you want to see only available image families (main categories), use:
     ``yc compute image list --folder-id standard-images --limit 0 --jq '.[].family' | sort | uniq``
     # example:
-         `ubuntu-2204-lts
-         ubuntu-2204-lts-oslogin
-         ubuntu-2204-lts-vgpu-v13
-         centos-8
-         windows-server-2019
-         ...`
+    ```
+    {
+         "ubuntu-2204-lts"
+         "ubuntu-2204-lts-oslogin"
+         "ubuntu-2204-lts-vgpu-v13+
+         "centOS-8"
+         "windows-server-2019"
+         ...
+    }
+    ``` 
 ## To show all images from a specific family, use
     ``yc compute image list --folder-id standard-images | grep <идентификатор_семейства>``
     ``yc compute image list --folder-id standard-images | grep ubuntu-2204-lts``
