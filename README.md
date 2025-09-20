@@ -230,9 +230,44 @@ requirement.txt
  содержит список пакетов и зависимостей, необходимых для запуска вашего проекта, а также их соответствующие версии, требуемые для корректной работы приложения.
 
      # Внутри активированной venv выполните следующую команду в терминале:
+     
      ``pip freeze > requirements.txt``
+     
      # Эта команда сгенерирует имена пакетов и их соответствующих версий, которые вы установили, а также некоторые другие встроенные зависимости, которые запускают ваше приложение Flask. Затем он сохраняет их в файле с именем requirements.txt
-      
     
+    # Вы можете проверить, работает ли приложение, прежде чем приступить к его контейнеризации. Запустите эту команду на своем терминале в корневом каталоге:
+    
+    ``python app.py``
+
+### Настройка Dockerfile для создания образа приложения Flask
+
+     # Создайте файл Dockerfile внутри webapp. Добавьте в файл следующий фрагмент кода:
+     # start by pulling the python image
+      FROM python:3.8-alpine
+     # copy the requirements file into the image
+    COPY ./requirements.txt /app/requirements.txt
+     # switch working directory
+       WORKDIR /app
+      # install the dependencies and packages in the requirements file
+       RUN pip install -r requirements.txt
+      # copy every content from the local file to the image
+      COPY . /app
+      # configure the container to run in an executed manner
+    ENTRYPOINT ["python"]
+       
+    CMD ["app.py"]
+
+#  Создадим образ (image) Docker
+
+       Выйдем из активированной среды venv:
+     
+     ``deactivate``
+ 
+      Для этого необходимо в командном окне (не в активированной среде), запустить команду:
+    
+    ``sudo docker image build -t flask_docker .``
+
+
+		
 
     
