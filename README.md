@@ -181,6 +181,47 @@ Python 3.13.2
 
 ## Command so that the user can execute Docker commands without using `sudo`
     ``sudo usermod -aG docker $USER``
+
+# # Создание Web-приложения Flask и деплой с помощью Docker Compose & Dockerfile
+       # Создадим папку с именем flask_docker для нашего приложения:
+    ``mkdir flask_docker``
+    
+    # Переходим внутрь папки:
+    ``cd flask_docker``
+    
+    # Если у Вас не установлена виртуальная среда venv, то необходимо ее исталлировать командой:
+    ``brew install python3.8-venv``
+    
+    # Далее создаем виртуальную среду myenv
+    ``python3 -m venv myenv``
+    
+    # Должна появиться директория myenv. Запускаем команду активации виртуальной среды:
+    ``source myenv/bin/activate``
+    
+    # Внутри активированной виртуальной среды запускаем установку библиотеки Flask:
+    ``pip install Flask``
+    
+    # После успешной установки Flask следующим шагом будет создание файла Python **app.py**, который будет получать запросы и отправлять ответы для нашего web-приложения. Для этого создадим директорию **webapp**:
+    ``mkdir webapp``
+    
+    ``cd webapp``
+    
+    # Далее нам нужно в директории **webapp** создать файл файл **app.py** со следущим кодом внутри:
+    ```
+    {
+        from flask import Flask
+        
+        app = Flask(__name__)
+
+        @app.route('/')
+        def home():
+             return '<h1>Hello, World!</h1>'
+
+        if __name__ == "__main__":
+             app.run(debug=True, host='0.0.0.0', port=5000)
+     }
+        
+    ```
       
     
 
