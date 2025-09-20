@@ -182,7 +182,7 @@ Python 3.13.2
 ## Command so that the user can execute Docker commands without using `sudo`
     ``sudo usermod -aG docker $USER``
 
-# # Создание Web-приложения Flask и деплой с помощью Docker Compose & Dockerfile
+# [Создание Web-приложения Flask и деплой с помощью Docker Compose & Dockerfile](https://python.ivan-shamaev.ru/run-install-deploy-flask-web-app-docker-dockerfile-compose/)
        # Создадим папку с именем flask_docker для нашего приложения:
     ``mkdir flask_docker``
     
@@ -222,6 +222,16 @@ Python 3.13.2
      }
         
     ```
+# ## Как создать Python requirement.txt файл для Docker
+### Файл 
+
+requirement.txt
+
+ содержит список пакетов и зависимостей, необходимых для запуска вашего проекта, а также их соответствующие версии, требуемые для корректной работы приложения.
+
+     # Внутри активированной venv выполните следующую команду в терминале:
+     ``pip freeze > requirements.txt``
+     # Эта команда сгенерирует имена пакетов и их соответствующих версий, которые вы установили, а также некоторые другие встроенные зависимости, которые запускают ваше приложение Flask. Затем он сохраняет их в файле с именем requirements.txt
       
     
 
