@@ -57,10 +57,12 @@
     ``yc compute instance create \``
     ``--name my-vm \``
     ``--hostname my-vm \``
-    ``--create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \``
+    ``--memory 4 \``
+    ``--cores 2 \``
+    ``--create-boot-disk size=20,image-folder-id=standard-images,image-family=ubuntu-2204-lts \``
     ``--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \``
     ``--zone ru-central1-a``
-    ``--metadata ssh-keys="ubuntu:$(cat ~/.ssh/id_ed25519.pub)"
+    ``--metadata ssh-keys="$(cat ~/.ssh/id_ed25519.pub)"
 
 ## View available list OS yandexcloud CLI
      ``yc compute image list --folder-id standard-images --limit 0``
