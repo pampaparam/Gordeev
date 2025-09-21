@@ -8,6 +8,9 @@ mise use -g ruby@latest
 # package manager for python
 mise use -g uv@latest
 
+# brew
+brew install --cask visual-studio-code
+
 # docker
 curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER
