@@ -11,9 +11,5 @@ mise use -g uv@latest
 # brew
 brew install --cask visual-studio-code
 
-# docker
-curl -fsSL https://get.docker.com | sh
-sudo usermod -aG docker $USER
-
 # yandex-cli
 curl -fsSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
