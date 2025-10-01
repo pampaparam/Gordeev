@@ -293,7 +293,9 @@ Python 3.13.2
 ```sh
     brew install node
 ```
-    # Launch node
+
+### Launch node
+
 ```sh
     node
 ```
