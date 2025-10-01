@@ -288,7 +288,7 @@ Python 3.13.2
     node -v
 ```
 
-# if you don't have, have to install.
+### if you don't have, have to install.
 
 ```sh
     brew install node
