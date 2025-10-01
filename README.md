@@ -319,65 +319,123 @@ Python 3.13.2
 ```
     
 # Docker
+
 ## Install docker
+```sh
     brew install docker
+```
     # [or you can install docker from website] (https://www.docker.com/products/docker-desktop/)
+
 ### Check version
+
+```sh
     docker --version
+```
+
 ### Check docker
+
+```sh
      docker run hello-world
+```
+
 ### Launch new container  on ubuntu image
+```sh
     docker run -it ubuntu bash
+```
     # you see command `root@<container_id>:/#`
     # you can do
-    - ls
-    - pwd
-    - apt update
-    - ...
+     - ls
+     - pwd
+     - apt update
+     - ...
      # for exit from container
      exit or `Ctrl + D`
- # How do exit out of container and don't stop him
+ 
+# How do exit out of container and don't stop him
+
       `Ctrl + P, after Ctrl + Q`
- # To reconnect to a running container
+
+# To reconnect to a running container
+
+```sh
     docker attach <container_id>
+```
     # OR
+```sh
     docker exec -it <container_id> bash
+```
+
 ## Check if container is running
+
+```sh
     docker ps
+```
+
 ## View processes runing inside the container
+
+```sh
     docker top <container_id_or_name>
+```
+
 ## View logs
+
+```sh
     docker logs <container_id_or_name>
+```
 
 ## Command so that the user can execute Docker commands without using `sudo`
+
+```sh
     sudo usermod -aG docker $USER
+```
 
 # [Создание Web-приложения Flask и деплой с помощью Docker Compose & Dockerfile](https://python.ivan-shamaev.ru/run-install-deploy-flask-web-app-docker-dockerfile-compose/)
        # Создадим папку с именем flask_docker для нашего приложения:
-    mkdir flask_docker
+      
+       ```sh
+       mkdir flask_docker
+       ```
     
-    # Переходим внутрь папки:
-    cd flask_docker
+      
+       # Переходим внутрь папки:
+       ```sh
+      cd flask_docker
+       ```
     
-    # Если у Вас не установлена виртуальная среда venv, то необходимо ее исталлировать командой:
-    brew install python3.8-venv
+       # Если у Вас не установлена виртуальная среда venv, то необходимо ее исталлировать командой:
+
+       ```sh
+       brew install python3.8-venv
+       ```
     
-    # Далее создаем виртуальную среду myenv
-    python3 -m venv myenv
+       # Далее создаем виртуальную среду myenv
+       
+       ```sh
+       python3 -m venv myenv
+       ```
     
-    # Должна появиться директория myenv. Запускаем команду активации виртуальной среды:
-    source myenv/bin/activate
+        # Должна появиться директория myenv. Запускаем команду активации виртуальной среды:
+        
+        ```sh
+        source myenv/bin/activate
+        ```
     
-    # Внутри активированной виртуальной среды запускаем установку библиотеки Flask:
-    pip install Flask
+        # Внутри активированной виртуальной среды запускаем установку библиотеки Flask:
+        ```sh
+        pip install Flask
+        ```
     
-    # После успешной установки Flask следующим шагом будет создание файла Python **app.py**, который будет получать запросы и отправлять ответы для нашего web-приложения. Для этого создадим директорию **webapp**:
-    mkdir webapp
+        # После успешной установки Flask следующим шагом будет создание файла Python **app.py**, который будет получать запросы и отправлять ответы для нашего web-приложения. Для этого создадим директорию **webapp**:
+        ```sh
+        mkdir webapp
+        ```
+
+        ```sh
+        cd webapp
+        ```
     
-    cd webapp
-    
-    # Далее нам нужно в директории **webapp** создать файл файл **app.py** со следущим кодом внутри:
-    `
+        # Далее нам нужно в директории **webapp** создать файл файл **app.py** со следущим кодом внутри:
+    ```
     {
         from flask import Flask
         
@@ -389,53 +447,57 @@ Python 3.13.2
 
         if __name__ == "__main__":
              app.run(debug=True, host='0.0.0.0', port=5000)
-     }
-        
-    `
-# ## Как создать Python requirement.txt файл для Docker
-### Файл 
+    }
 
-requirement.txt
+### Как создать Python requirement.txt файл для Docker 
 
- содержит список пакетов и зависимостей, необходимых для запуска вашего проекта, а также их соответствующие версии, требуемые для корректной работы приложения.
+   `requirement.txt`
+
+     содержит список пакетов и зависимостей,необходимых для запуска вашего проекта, а также их соответствующие версии, требуемые для корректной работы приложения.
 
      # Внутри активированной venv выполните следующую команду в терминале:
-     
+     ```sh
      pip freeze > requirements.txt
+     ```
      
      # Эта команда сгенерирует имена пакетов и их соответствующих версий, которые вы установили, а также некоторые другие встроенные зависимости, которые запускают ваше приложение Flask. Затем он сохраняет их в файле с именем requirements.txt
     
-    # Вы можете проверить, работает ли приложение, прежде чем приступить к его контейнеризации. Запустите эту команду на своем терминале в корневом каталоге:
-    
-    python app.py
+     # Вы можете проверить, работает ли приложение, прежде чем приступить к его контейнеризации. Запустите эту команду на своем терминале в корневом каталоге:
+     ```sh
+     python app.py
+     ```
 
 ### Настройка Dockerfile для создания образа приложения Flask
 
-     # Создайте файл Dockerfile внутри webapp. Добавьте в файл следующий фрагмент кода:
+     # Создайте файл Dockerfile внутри webapp. 
+     
+     Добавьте в файл следующий фрагмент кода:
      # start by pulling the python image
-      FROM python:3.8-alpine
+     FROM python:3.8-alpine
      # copy the requirements file into the image
-    COPY ./requirements.txt /app/requirements.txt
+     COPY ./requirements.txt /app/requirements.txt
      # switch working directory
-       WORKDIR /app
-      # install the dependencies and packages in the requirements file
-       RUN pip install -r requirements.txt
-      # copy every content from the local file to the image
-      COPY . /app
-      # configure the container to run in an executed manner
-    ENTRYPOINT ["python"]
+     WORKDIR /app
+     # install the dependencies and packages in the requirements file
+     RUN pip install -r requirements.txt
+     # copy every content from the local file to the image
+     COPY . /app
+     # configure the container to run in an executed manner
+     ENTRYPOINT ["python"]
        
-    CMD ["app.py"]
+     CMD ["app.py"]
 
 #  Создадим образ (image) Docker
 
        Выйдем из активированной среды venv:
-     
-     deactivate
+       ```sh
+       deactivate
+       ```
  
       Для этого необходимо в командном окне (не в активированной среде), запустить команду:
-    
-    sudo docker image build -t flask_docker .
+      ```sh
+      sudo docker image build -t flask_docker .
+      ```
 
 
 		
