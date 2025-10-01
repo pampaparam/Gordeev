@@ -170,73 +170,153 @@ yc compute image list --folder-id standard-images --limit 0 --jq '.[].family' | 
 }
 ``` 
 ## To show all images from a specific family, use
-    yc compute image list --folder-id standard-images | grep <идентификатор_семейства>
-    yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
+
+```sh
+yc compute image list --folder-id standard-images | grep <идентификатор_семейства>
+```
+```sh
+yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
+```
 
 
 
 ### in catalog web browser yc in "access right" add 5 roles
+```sh
+{
     `compute.disk.user`
     `compute.editor`
     `compute.images.user`
     `license-manager.viewer`
-    `viewer`
+    `viewer`  
+}
+```
+   
 ### Check VM list
+
+```sh
     yc compute instance list
+```
+
 ### Get specific information about VM
+```sh
     yc compute instance get <name-vm>
+```
 ### Check status
+```sh
     yc compute instance list --format yaml | grep -E "name|status"
+```
+
 ### Get external IP
+```sh
     yc compute instance get <my-vm> --format json | jq
     `'.network_interfaces[0].primary_v4_address.one_to_one_nat.address'`
+```
 
 ### Connect to VM with SSH
+```sh
     ssh ubuntu@<external-ip>
+```
 ### Stop-start-delete-reboot machine
+
+```sh
     yc compute instance stop <my_vm or id_vm>
+```
+```sh
     yc compute instance start <my_vm or id_vm>
+```
+```sh
     yc compute instance reboot <my_vm or id_vm>
+```
+
 ### You can display a list of subnets and select the right
+```sh
     yc vpc subnet list
+```
+
 ### Launch ssh-agent
+
+```sh
     eval "$(ssh-agent -s)"
+```
+
 ### Add private key in agent
+```sh
     ssh-add ~/.ssh/id_ed25519
+```
+
 ### Check it's done
+```sh
     ssh-add -l
+```
 ## Mise install CLI "brew"
+
+```sh
     brew install mise
+```
+
 ### Mise exec and run
+
+```sh
     mise exec python@3 -- python
+```
     this will download and install Python if it is not already installed
 Python 3.13.2
 #>>> ...
+
 ### or run node 22:
+
+```sh
     mise exec node@22 -- node -v
+```
     # v22.x.x
 ###### [`mise x|exec`](https://mise.jdx.dev/cli/exec.html) is a powerful way to load the current `mise` context (tools & environment variables) without modifying your shell session or running ad-hoc commands with mise tools set. Installing [`tools`](https://mise.jdx.dev/dev-tools/) is as simple as running [`mise u|use`](https://mise.jdx.dev/cli/use.html)
+
+```sh
     mise use --global node@22
+```
     # install node 22 and set it as the global default
+```sh
     mise exec -- node my-scripts.js
-    # run my-scripts.js with node 22...
+```
+```sh
+    run my-scripts.js
+```
+     with node 22...
     # if my-scripts.js can't open, maybe you have to install node.
     # check that you have Node.js
+```sh
     node -v
+```
     # if you don't have, have to install.
+```sh
     brew install node
+```
     # Launch node
+```sh
     node
+```
+
 ## Install go
+```sh
     mise use -g go@latest
+```
+
 ## Install ruby
+```sh
     mise use -g ruby@latest
+```
     # ruby may not install in the end, maybe you have to install missing dependencies
+```sh
     brew install zlib readline libyaml libffi
+```
     # Check Xcode Command Line Tools
+```sh
     xcode-select --install
+```
     # Launch installation with detailed diagnostic output
+```sh
     mise install ruby@latest --verbose
+```
     
 # Docker
 ## Install docker
