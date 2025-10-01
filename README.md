@@ -3,58 +3,124 @@
 - [Lecture about DevOps](https://youtube.com/playlist?list=PLLELLTvDgUQ-iwnE9coLhb-ynyZUGzW6q&si=1YMwzEh2zhHRH_p7)
 
 - [Roadmap DevOps by unknown man](https://youtu.be/2FsmJrorp9Q?si=FB-ew2L4uOU33J2R)
+
 ## Install Homebrew in MacOs
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 ## Change mode
-     sudo chown -R $(whoami) /opt/homebrew
-     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
-     source ~/.zshrc
-     brew doctor
+```sh
+sudo chown -R $(whoami) /opt/homebrew
+```
+```sh
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+```
+```sh
+source ~/.zshrc
+```
+```sh
+brew doctor
+```
 
 ## Generate ssh-key
-      ssh-keygen
+```sh
+ssh-keygen
+```
+
 ### Three times push Enter and Go in GitHub and create NewSSHKey
+
 ### In Terminal Do for key ED25519
-     pbcopy < ~/.ssh/id_ed25519.pub
+
+```sh
+pbcopy < ~/.ssh/id_ed25519.pub
+```
+
 ### For RSA Key
-     pbcopy < ~/.ssh/id_rsa.pub
+
+```sh
+pbcopy < ~/.ssh/id_rsa.pub
+```
 
 ### If you have repository in Github
-    git clone git@github.com:username/Repo.git
-    git config --list
-    git config --global user.name "username"
-    git config --global user.email "email"
+```sh
+git clone git@github.com:username/Repo.git
+```
+```sh
+git config --list
+```
+```sh
+git config --global user.name "username"
+```
+```sh
+git config --global user.email "email"
+```
+
 ### Open editor Nano
-    nano ~/.zshrc
-       and add alias
-        alias c="git add . && git commit -m upd && git push origin main"
-      alias s="git status"
-      source ~/.zshrc  Save changes
+```sh
+nano ~/.zshrc
+```
+    and add alias
+```sh
+alias c="git add . && git commit -m upd && git push origin main"
+```
+```sh
+alias s="git status"
+```
+```sh
+source ~/.zshrc
+```
+  Save changes
+
 ### Create PAT(personal access token) in GitHub
-      brew install gh
-      gh auth login
+     ```sh
+    brew install gh
+     ```
+     ```sh
+    gh auth login
+     ```
 
 ### Go in Obsidian > settings > community plugins > Browse
+
 ### in search write "Git" > choose Git by Vinzent > install > Enable
+
 ### Push CMD + P > Clone an existing repo
+
     https://username:Token@github.com/username/Repo.git 
      
      
-- Create virtual machine in web version Yandexcluod (Launch; Terminate)
+     - Create virtual machine in web version Yandexcluod (Launch; Terminate)
 
-    - Connect to Virtual Machine in Terminal  ssh -l ubuntu IP dynamic
+     - Connect to Virtual Machine in Terminal  ssh -l ubuntu IP dynamic
+
 ## Create instance in terminal by yc cli
+
+```sh
     curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+```
+
 ### restart shell
+
+```sh
     exec -l $SHELL
+```
+
 ### Inicialization
+
 ```sh
 yc init
+```
+```sh
 yc --version
+```
+```sh
 yc config list
+```
+```sh
 yc help
 ```
+
 # Create instance
 
 ```sh
@@ -84,20 +150,25 @@ yc compute instance create \
     
 
 ## View available list OS yandexcloud CLI
-     yc compute image list --folder-id standard-images --limit 5
+
+```sh
+yc compute image list --folder-id standard-images --limit 5
+```
+
 ### If you want to see only available image families (main categories), use:
-    yc compute image list --folder-id standard-images --limit 0 --jq '.[].family' | sort | uniq
-    # example:
-    `
-    {
-         "ubuntu-2204-lts"
-         "ubuntu-2204-lts-oslogin"
-         "ubuntu-2204-lts-vgpu-v13+
-         "centOS-8"
-         "windows-server-2019"
-         ...
-    }
-    ` 
+```sh
+yc compute image list --folder-id standard-images --limit 0 --jq '.[].family' | sort | uniq
+```
+    example:
+```sh
+{
+    "ubuntu-2204-lts"
+    "ubuntu-2204-lts-oslogin"
+    "ubuntu-2204-lts-vgpu-v13+
+    "centOS-8"
+    "windows-server-2019"
+}
+``` 
 ## To show all images from a specific family, use
     yc compute image list --folder-id standard-images | grep <идентификатор_семейства>
     yc compute image list --folder-id standard-images | grep ubuntu-2204-lts
