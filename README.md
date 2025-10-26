@@ -49,11 +49,14 @@ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 ### If you have repository in Github
-```
-git clone git@github.com:username/Repo.git
-git config --list
-git config --global user.name "username"
-git config --global user.email "email"
+
+```sh
+{
+    git clone git@github.com:username/Repo.git
+    git config --list
+    git config --global user.name "username"
+    git config --global user.email "email"
+}
 ```
 
 ### Open editor Nano
@@ -61,7 +64,7 @@ git config --global user.email "email"
 ```sh
 nano ~/.zshrc
 ```
-    and add alias
+### and add alias
 
 ```sh
 alias c="git add . && git commit -m upd && git push origin main"
@@ -75,7 +78,7 @@ alias s="git status"
 source ~/.zshrc
 ```
 
-  Save changes
+### Save changes
 
 ### Create PAT(personal access token) in GitHub
      
@@ -124,7 +127,6 @@ yc --version
 
 ```sh
 yc config list
-```
 
 ```sh
 yc help
