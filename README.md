@@ -128,6 +128,7 @@ yc --version
 
 ```sh
 yc config list
+```
 
 ```sh
 yc help
