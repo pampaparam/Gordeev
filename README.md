@@ -49,20 +49,10 @@ pbcopy < ~/.ssh/id_rsa.pub
 ```
 
 ### If you have repository in Github
-
-```sh
+```
 git clone git@github.com:username/Repo.git
-```
-
-```sh
 git config --list
-```
-
-```sh
 git config --global user.name "username"
-```
-
-```sh
 git config --global user.email "email"
 ```
 
