@@ -529,33 +529,45 @@ python app.py
 
 ###### Создайте файл Dockerfile внутри webapp. 
      
-Добавьте в файл следующий фрагмент кода:
+###### Добавьте в файл следующий фрагмент кода:
 
 ```sh     
 start by pulling the python image
 FROM python:3.8-alpine
 ```
      
-    # copy the requirements file into the image
+###### copy the requirements file into the image
+
+```sh     
+COPY ./requirements.txt /app/requirements.txt
+```    
+
+###### switch working directory
+```sh     
+WORKDIR /app
+```
      
-     COPY ./requirements.txt /app/requirements.txt
+###### install the dependencies and packages in the requirements file
+
+```sh     
+RUN pip install -r requirements.txt
+```
     
-    # switch working directory
+###### copy every content from the local file to the image
+
+```sh
+COPY . /app
+```
      
-     WORKDIR /app
-     
-    # install the dependencies and packages in the requirements file
-     
-     RUN pip install -r requirements.txt
-    # copy every content from the local file to the image
-     
-     COPY . /app
-     
-    # configure the container to run in an executed manner
-     
-     ENTRYPOINT ["python"]
-       
-     CMD ["app.py"]
+###### configure the container to run in an executed manner
+
+```sh     
+ENTRYPOINT ["python"]
+```
+
+```sh       
+CMD ["app.py"]
+```
 
 ###  Создадим образ (image) Docker
 
