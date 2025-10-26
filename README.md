@@ -529,7 +529,7 @@ python app.py
 
 ###### Создайте файл Dockerfile внутри webapp. 
      
-     Добавьте в файл следующий фрагмент кода:
+Добавьте в файл следующий фрагмент кода:
 
 ```sh     
 start by pulling the python image
