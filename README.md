@@ -53,8 +53,11 @@ pbcopy < ~/.ssh/id_rsa.pub
 ```sh
 {
     git clone git@github.com:username/Repo.git
+    
     git config --list
+    
     git config --global user.name "username"
+    
     git config --global user.email "email"
 }
 ```
@@ -65,17 +68,16 @@ pbcopy < ~/.ssh/id_rsa.pub
 nano ~/.zshrc
 ```
 ### and add alias
-
 ```sh
-alias c="git add . && git commit -m upd && git push origin main"
-```
-
-```sh
-alias s="git status"
-```
-
-```sh
-source ~/.zshrc
+{
+    alias c="git add . && git commit -m upd && git push 
+    
+    origin main"
+    
+    alias s="git status"
+    
+    source ~/.zshrc
+}
 ```
 
 ### Save changes
