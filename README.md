@@ -299,7 +299,7 @@ mise exec python@3 -- python
 mise exec node@22 -- node -v
 ```
 
-    # v22.x.x
+###### v22.x.x
 
 ###### [`mise x|exec`](https://mise.jdx.dev/cli/exec.html) is a powerful way to load the current `mise` context (tools & environment variables) without modifying your shell session or running ad-hoc commands with mise tools set. Installing [`tools`](https://mise.jdx.dev/dev-tools/) is as simple as running [`mise u|use`](https://mise.jdx.dev/cli/use.html)
 
@@ -317,9 +317,9 @@ mise exec -- node my-scripts.js
 run my-scripts.js
 ```
 
-##### with node 22...
-##### if my-scripts.js can't open, maybe you have to install node.
-##### check that you have Node.js
+###### with node 22...
+###### if my-scripts.js can't open, maybe you have to install node.
+###### check that you have Node.js
 
 ```sh
 node -v
@@ -348,18 +348,17 @@ mise use -g go@latest
 ```sh
 mise use -g ruby@latest
 ```
-     # ruby may not install in the end, maybe you have to install missing dependencies
+###### ruby may not install in the end, maybe you have to install missing dependencies
 
 ```sh
 brew install zlib readline libyaml libffi
 ```
-
-     # Check Xcode Command Line Tools
+###### Check Xcode Command Line Tools
 
 ```sh
 xcode-select --install
 ```
-     # Launch installation with detailed diagnostic output
+###### Launch installation with detailed diagnostic output
 
 ```sh
 mise install ruby@latest --verbose
