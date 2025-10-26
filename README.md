@@ -289,9 +289,8 @@ brew install mise
 mise exec python@3 -- python
 ```
 
-    this will download and install Python if it is not already installed
-    Python 3.13.2
-    #>>> ...
+##### this will download and install Python if it is not already installed Python 3.13.2
+>>> ...
 
 ### or run node 22:
 
