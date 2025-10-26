@@ -83,14 +83,13 @@ nano ~/.zshrc
 ### Save changes
 
 ### Create PAT(personal access token) in GitHub
-     
-     ```sh
-     brew install gh
-     ```
-     
-     ```sh
-     gh auth login
-     ```
+```sh
+{
+    brew install gh
+    
+    gh auth login
+}
+```
 
 ### Go in Obsidian > settings > community plugins > Browse
 
