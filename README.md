@@ -371,7 +371,7 @@ mise install ruby@latest --verbose
 brew install docker
 ```
 
-     # [or you can install docker from website] (https://www.docker.com/products/docker-desktop/)
+##### [or you can install docker from website] (https://www.docker.com/products/docker-desktop/)
 
 ### Check version
 
