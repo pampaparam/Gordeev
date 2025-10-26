@@ -172,9 +172,9 @@ yc compute image list --folder-id standard-images --limit 5
 
 ```sh
 yc compute image list --folder-id standard-images --limit 0 --jq '.[].family' | sort | uniq
-
 ```
-    example:
+
+### example:
 
 ```sh
 {
@@ -307,7 +307,7 @@ mise exec node@22 -- node -v
 mise use --global node@22
 ```
 
-    # install node 22 and set it as the global default
+##### install node 22 and set it as the global default
 
 ```sh
 mise exec -- node my-scripts.js
@@ -317,11 +317,9 @@ mise exec -- node my-scripts.js
 run my-scripts.js
 ```
 
-     with node 22...
-
-     # if my-scripts.js can't open, maybe you have to install node.
-     
-     # check that you have Node.js
+##### with node 22...
+##### if my-scripts.js can't open, maybe you have to install node.
+##### check that you have Node.js
 
 ```sh
 node -v
