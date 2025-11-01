@@ -440,6 +440,13 @@ docker logs <container_id_or_name>
 sudo usermod -aG docker $USER
 ```
 
+## Docker compose
+### Check that you have Docker compose
+
+```sh
+docker compose version
+```
+
 ### [Создание Web-приложения Flask и деплой с помощью Docker Compose & Dockerfile](https://python.ivan-shamaev.ru/run-install-deploy-flask-web-app-docker-dockerfile-compose/)
 
 #### Создадим папку с именем flask_docker для нашего приложения:
