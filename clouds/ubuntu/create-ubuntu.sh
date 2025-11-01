@@ -5,7 +5,7 @@ export SSH_KEY="$(cat ~/.ssh/id_ed25519.pub)"
 
 
 yc compute instance create \
-    --name my-vm \
+    --name test-machine \
     --hostname my-vm \
     --memory 4 \
     --cores 2 \
