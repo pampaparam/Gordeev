@@ -583,6 +583,23 @@ deactivate
 sudo docker image build -t flask_docker .
 ```
 
+## On MacOs using "Brew services..."
+
+```sh
+brew services start nginx
+brew services stop nginx
+brew services restart nginx
+```
+
+### On Linux using "systemctl..."
+
+```sh
+sudo systemctl start nginx    # запустить
+sudo systemctl stop nginx     # остановить
+sudo systemctl reload nginx   # применить изменения без остановки
+```
+
+
 
 		
 
