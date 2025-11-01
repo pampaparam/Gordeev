@@ -441,7 +441,7 @@ sudo usermod -aG docker $USER
 ```
 
 ## Docker compose
-### Check that you have Docker compose
+### Check that you have Docker composes
 
 ```sh
 docker compose version
