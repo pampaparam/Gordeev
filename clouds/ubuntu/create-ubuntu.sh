@@ -1,5 +1,5 @@
 #!/bin/sh
-vm_name="${1:-my-vm}
+vm_name="${1:-my-vm}"
 export USER_NAME="leha"
 export SSH_KEY="$(cat ~/.ssh/id_ed25519.pub)"
 
