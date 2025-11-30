@@ -1,3 +1,5 @@
+OH SHIT DAMV
+
 - [Full GIT course](https://youtu.be/O00FTZDxD0o?si=q1U6wC2giKM19oxM)
 
 - [Lecture about DevOps](https://youtube.com/playlist?list=PLLELLTvDgUQ-iwnE9coLhb-ynyZUGzW6q&si=1YMwzEh2zhHRH_p7)
