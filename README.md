@@ -1,5 +1,3 @@
-VANICH, skoro budut commity
-
 - [Full GIT course](https://youtu.be/O00FTZDxD0o?si=q1U6wC2giKM19oxM)
 
 - [Lecture about DevOps](https://youtube.com/playlist?list=PLLELLTvDgUQ-iwnE9coLhb-ynyZUGzW6q&si=1YMwzEh2zhHRH_p7)
@@ -608,6 +606,26 @@ sudo systemctl stop nginx     # остановить
 sudo systemctl reload nginx   # применить изменения без остановки
 ```
 
+# Roadmap for Junior DevOps v2
+
+### Необходимо научиться работать с Linux, знать bash
+
+#### Развернуть Nginx на Linux и настроить так, чтобы сайт был доступен по внутреннему адресу.
+     в этом помогут:
+     - Linux (Ubuntu/Debian или CentOS)
+     - команды bash (apt, yum, systemctl)
+     - базовая конфигурация Nginx
+
+#### Настроить ротацию логов Nginx, чтобы старые автоматически архивировались и не занимали место.
+     в этом помогут:
+     - logrotate и его конфиги
+     - путь и структура логов Nginx(/var/log/nginx)
+     - команда logrotate -d для теста настроек
+
+#### Автоматизировать создание нескольких пользователей, выдать им доступ к нужным группам и настроить вход по SSH.
+     - bash скрипты (циклы и условия)
+     - команды useradd, usermod, groupadd
+     - настройка SSH-keys & authorized_keys
 
 
 		
