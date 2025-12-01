@@ -703,6 +703,67 @@ nano /opt/homebrew/etc/nginx/nginx.conf
      - путь и структура логов Nginx(/var/log/nginx)
      - команда logrotate -d для теста настроек
 
+### Настройка logrotate для Nginx
+    
+    Logrotate автоматически архивирует, сжимает и удаляет старые логи Nginx, предотвращая заполнение диска.  На Linux (Ubuntu/Debian) logrotate предустановлен; 
+    
+    на macOS установите через
+
+```sh
+brew install logrotate
+```
+
+    Создайте или отредактируйте конфиг  /etc/logrotate.d/nginx  (Linux) или  /opt/homebrew/etc/logrotate.d/nginx  (macOS).
+
+    Пример конфигурации logrotate
+
+```sh
+    /var/log/nginx/*.log {
+    daily
+    rotate 14
+    compress
+    delaycompress
+    notifempty
+    missingok
+    create 0640 www-data adm
+    postrotate
+        [ ! -f /var/run/nginx.pid ] || kill -USR1 `cat /var/run/nginx.pid`
+    endscript
+}
+```
+    Эта настройка ротирует логи ежедневно, хранит 14 архивов (gzip), создает новые с правами и сигнализирует Nginx открыть свежий файл.  Для macOS пути:  /opt/homebrew/var/log/nginx/*.log  и  kill -USR1 $(cat /opt/homebrew/var/run/nginx.pid) .
+
+### Проверка и запуск
+
+    Проверьте конфиг:
+    
+```sh
+logrotate -d /etc/logrotate.d/nginx
+```  (debug без выполнения).
+  
+  Тестируйте:
+  
+```sh
+logrotate -f /etc/logrotate.d/nginx
+```
+
+    Cron запускает logrotate ежедневно (/etc/cron.daily/logrotate);
+    на macOS настройте launchd или cron.  
+    
+    Мониторьте место:
+    
+```sh
+du -sh /var/log/nginx/
+```
+
+###Дополнительные опции
+	
+    •	 weekly  или  monthly  вместо  daily  для реже ротации. 
+	
+    •	 rotate 30  для месяца хранения,  size 100M  для ротации по размеру. 
+	
+    •	 dateext -%Y-%m  для имен вроде access.log-2025-12.gz.  Учитывая опыт с Linux/macOS серверами, настройте отдельно для access.log и error.log. 
+
 #### Автоматизировать создание нескольких пользователей, выдать им доступ к нужным группам и настроить вход по SSH.
      - bash скрипты (циклы и условия)
      - команды useradd, usermod, groupadd
