@@ -769,6 +769,49 @@ du -sh /var/log/nginx/
      - команды useradd, usermod, groupadd
      - настройка SSH-keys & authorized_keys
 
+### с помощью команды docker run -it ubuntu sh создал изолированный контейнер для практики, хочу попрактиковаться с докером, там нет Docker, его надо установить, с помощью sudo не получается, пока не знаю почему, буду пробовать без sudo
+
+```sh
+apt update && apt upgrade -y
+```
+
+### Устанавливаю зависимости
+
+```sh
+apt install -y ca-certificates curl gnupg lsb-release
+```
+
+### Добавляю GPG ключ Docker
+
+```sh
+mkdir -p /etc/apt/keyrings
+```
+
+```sh
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+
+### Решаем проблему с sudo
+
+```sh
+su -
+```
+
+```sh
+apt update
+```
+
+```sh
+apt install sudo
+```
+
+```sh
+usermod -aG sudo $(whoami)
+```
+
+```sh
+exit
+```
 
 
 		
