@@ -825,6 +825,8 @@ brew install --cask orbstack
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+После установки запустите OrbStack из Applications, предоставьте права администратора при первом запуске — он автоматически настроит Docker CLI и shell-интеграцию в ~/.zprofile
+
 
 
 		
