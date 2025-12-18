@@ -1,11 +1,11 @@
-FROM eclipse-temurin:25
+FROM eclipse-temurin:latest
 
-COPY . .
+COPY . /java
 
-WORKDIR /app
+WORKDIR /java
 
-EXPOSE 80
+EXPOSE 8001
 
 RUN javac Main.java
 
-CMD [ "java", "Main" ]
+CMD ["java", "com.itproger.Main"]
