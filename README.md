@@ -825,7 +825,36 @@ brew install --cask orbstack
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-После установки запустите OrbStack из Applications, предоставьте права администратора при первом запуске — он автоматически настроит Docker CLI и shell-интеграцию в ~/.zprofile
+После установки запустите OrbStack из Applications, предоставьте права администратора при первом запуске — он автоматически настроит Docker CLI и shell-интеграцию в ~/.zprofile or ~/.zshrc
+
+### После установки orbstack он может не использоваться из-за ряда причин:
+     1. Не прошел этап активации (ошибка connection reset)
+     2. CLI orbstack не установился в систему и Docker CLI всё ещё привязан к старому пути Docker Desktop.
+     3. Сетевая активация не завершилась
+        a) возможны проблемы с соединением
+        b) включен VPN, прокси, корпоративный фаервол, DPI, провайдер)
+    4. CLI не установился в PATH
+    5. Docker всё ещё смотрит на Docker Desktop.
+    Сейчас  docker  пытается подключиться к сокету  docker.raw.sock  в папке Docker Desktop и падает с  no such file or directory . Это нормально, когда старый движок выключен, а новый (OrbStack) ещё не встал.
+
+### Возможно надо переключиться в ручную, отвязаться от переменной окружения DOCKER_HOST.
+
+```sh
+unset DOCKER_HOST
+```
+#### После проверить
+
+```sh
+docker context show
+```
+    Должен показать orbstack. Затем попробовать 
+
+    ```sh
+    docker ps
+    ```
+    ```sh
+    docker run hello-world
+    ```
 
 
 
