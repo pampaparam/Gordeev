@@ -1,4 +1,4 @@
-FROM eclipse-eclipse-temurin:17-jdk
+FROM eclipse-temurin:25
 
 COPY . /java
 
