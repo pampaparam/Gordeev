@@ -813,6 +813,19 @@ usermod -aG sudo $(whoami)
 exit
 ```
 
+### Установка OrbStack на macOS m4 через Homebrew
+
+```sh
+brew install --cask orbstack
+```
+
+### Если нет Homebrew
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+
 
 		
 
