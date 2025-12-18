@@ -1,4 +1,4 @@
-package com.itproger;
+//package com.itproger;
 
 class Main {
     public static void main(String[] args) {

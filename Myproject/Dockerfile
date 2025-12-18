@@ -1,10 +1,10 @@
 FROM eclipse-temurin:25
 
-COPY . /java
+COPY . .
 
-WORKDIR /java
+WORKDIR /app
 
-EXPOSE 7878
+EXPOSE 80
 
 RUN javac Main.java
 
