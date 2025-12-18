@@ -6,6 +6,6 @@ WORKDIR /java
 
 EXPOSE 8001
 
-RUN javac Main.java
+RUN javac com/itproger/Main.java
 
-CMD ["java", "com.itproger.Main"]
+CMD ["java", "Main"]
