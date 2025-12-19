@@ -1,11 +1,13 @@
 FROM eclipse-temurin:latest
 
-COPY . /java
+WORKDIR /app
 
-WORKDIR /java
+COPY . .
 
-EXPOSE 8001
+RUN ls -la
 
-RUN javac com/itproger/Main.java
+RUN javac Main.java
 
-CMD ["java", "Main"]
+RUN ls -la *.class
+
+CMD [ "java", "Main" ]
