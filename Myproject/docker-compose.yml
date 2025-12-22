@@ -1,6 +1,13 @@
 services:
+  php:
+    build: ./php
+    ports:
+      - 8081:80
+    volumes:
+      - ./php:/var/www/html
+  
   db:
-    image: mariadb:10.11
+    image: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
