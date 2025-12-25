@@ -858,6 +858,94 @@ docker context show
 
 ## Создание телеграм-бота на Python
 
+#### Заходим в телеграм и ищем botfather, где создаем нашего тг-бота, добавляем картунку, описание 
+
+  ##### скачиваем последнюю версию python
+
+  ##### создаем директорию telegram-bot
+
+  ##### в этой директории создаем директорию venv для написания кода
+  
+  ```sh
+  brew install pyenv-virtualenv
+  ```
+
+  ```sh
+  echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
+  ```
+
+  ```sh
+  source ~/.zshrc
+  ```
+
+  ##### Pyenv-virtualenv создает окружения без проблем shims
+  
+  ```sh
+  pyenv virtualenv 3.11.4 venv
+  ```
+
+  ##### Если директория не появилась, то это нормально, venv создается в ~/.pyenv/versions/telegram-bot-env/bin/python а если хотите чтобы эта папка была в проекте
+
+  ```sh
+  ~/.pyenv/versions/3.11.4/bin/python -m venv venv
+  ```
+  
+   ##### и еще создаем файл main.py
+
+  ##### Устанавливаем библиотеку aiogram в окружении pyenv!
+
+  ```sh
+  pip install aiogram
+  ```
+
+  #### В main.py вставляем стандартные строки кода
+
+{
+    from aiogram import Bot, Dispatcher
+from aiogram.types import Message
+from aiogram.filters import Command
+
+
+BOT_TOKEN = "8430017466:AAEW71rfyYUZCAiZibHgISVj3w6glwebdNI"
+
+
+bot = Bot(token=BOT_TOKEN)
+dp = Dispatcher()
+
+
+
+@dp.message(Command("start"))
+async def process_start_command(message: Message):
+    await message.answer("Hello! I'm your friendly Telegram bot. How can I assist you today?")
+
+async def main():
+    await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
+}  
+
+#### чтобы выйти из pyvenv
+
+```sh
+pyvenv deactivate
+```
+ #### чтобы войти в окружение pyenv
+
+ ```sh
+ pyenv activate telegram-bot
+ ```        
+ 
+ #### Проверка окружения
+
+ ```sh
+ which python
+ ```
+ ```sh
+ pip list | grep aiogram
+ ```
 
 
 
