@@ -14,3 +14,10 @@ dp = Dispatcher()
 @dp.message(Command("start"))
 async def process_start_command(message: Message):
     await message.answer("Hello! I'm your friendly Telegram bot. How can I assist you today?")
+
+async def main():
+    await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
