@@ -930,7 +930,7 @@ if __name__ == "__main__":
 #### чтобы выйти из pyvenv
 
 ```sh
-pyvenv deactivate
+pyenv deactivate
 ```
  #### чтобы войти в окружение pyenv
 
@@ -946,6 +946,8 @@ pyvenv deactivate
  ```sh
  pip list | grep aiogram
  ```
+
+ #### Регистрируемся на Sourcecraft.dev и создаем там пустой репозиторий, после создаем персональный ключ доступа
 
 
 
