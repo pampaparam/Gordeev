@@ -9,3 +9,19 @@ variable "boot_disk_size" {
 variable "av_zone" {
   default = "ru-central1-b"
 }
+
+variable "yandex_token" {
+  type        = string
+  description = "Yandex Cloud IAM token"
+  sensitive   = true
+}
+
+variable "cloud_id" {
+  type        = string
+  description = "Yandex Cloud ID"
+}
+
+variable "folder_id" {
+  type        = string
+  description = "Yandex Cloud folder ID"
+}
