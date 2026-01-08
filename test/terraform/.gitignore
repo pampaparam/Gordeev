@@ -2,7 +2,7 @@ terraform/.terraform
 terraform/*.tfstate
 terraform/*.tfstate.backup
 meta.yaml
-*.tfvars
+terraform.tfvars
 
 # Secrets
 *.key
