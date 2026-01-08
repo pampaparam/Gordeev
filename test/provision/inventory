@@ -1,0 +1,6 @@
+[vm1]
+89.169.167.211 ansible_user=debian
+
+[vm1:vars]
+ansible_ssh_common_args='-o KexAlgorithms=+diffie-hellman-group14-sha1 -o PubkeyAcceptedKeyTypes=+ssh-rsa'
+ansible_python_interpreter=/usr/bin/python3
