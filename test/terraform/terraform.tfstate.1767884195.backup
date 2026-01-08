@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.14.3",
-  "serial": 89,
+  "serial": 65,
   "lineage": "4896466e-a5fb-67ca-bbbe-6a89928b7747",
   "outputs": {},
   "resources": [
@@ -16,7 +16,7 @@
           "attributes": {
             "allow_recreate": null,
             "block_size": 4096,
-            "created_at": "2026-01-08T16:00:16Z",
+            "created_at": "2026-01-08T05:47:38Z",
             "description": "",
             "disk_placement_policy": [
               {
@@ -34,7 +34,7 @@
                 ]
               }
             ],
-            "id": "epdoq9t8jvb90kgbfmoj",
+            "id": "epd0mm0asmr567g5phqh",
             "image_id": "fd8cd36ucbbm8asremal",
             "kms_key_id": null,
             "labels": null,
@@ -119,8 +119,8 @@
             "boot_disk": [
               {
                 "auto_delete": true,
-                "device_name": "epdoq9t8jvb90kgbfmoj",
-                "disk_id": "epdoq9t8jvb90kgbfmoj",
+                "device_name": "epd0mm0asmr567g5phqh",
+                "disk_id": "epd0mm0asmr567g5phqh",
                 "initialize_params": [
                   {
                     "block_size": 4096,
@@ -136,11 +136,11 @@
                 "mode": "READ_WRITE"
               }
             ],
-            "created_at": "2026-01-08T16:00:34Z",
+            "created_at": "2026-01-08T05:47:56Z",
             "description": "",
             "filesystem": [],
             "folder_id": "b1gdi8d4kforcnsf5kvt",
-            "fqdn": "epd62ij9lthnnb1bae5n.auto.internal",
+            "fqdn": "epdnfthe8pj6cv5kh7pb.auto.internal",
             "gpu_cluster_id": "",
             "hardware_generation": [
               {
@@ -153,7 +153,7 @@
               }
             ],
             "hostname": "",
-            "id": "epd62ij9lthnnb1bae5n",
+            "id": "epdnfthe8pj6cv5kh7pb",
             "labels": null,
             "local_disk": [],
             "maintenance_grace_period": "",
@@ -176,15 +176,15 @@
               {
                 "dns_record": [],
                 "index": 0,
-                "ip_address": "10.129.0.19",
+                "ip_address": "10.129.0.6",
                 "ipv4": true,
                 "ipv6": false,
                 "ipv6_address": "",
                 "ipv6_dns_record": [],
-                "mac_address": "d0:0d:61:4a:69:af",
+                "mac_address": "d0:0d:17:7f:62:e4",
                 "nat": true,
                 "nat_dns_record": [],
-                "nat_ip_address": "158.160.67.215",
+                "nat_ip_address": "158.160.9.7",
                 "nat_ip_version": "IPV4",
                 "security_group_ids": null,
                 "subnet_id": "e2ltsu29c7ocvcu0bjr0"
