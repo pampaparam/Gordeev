@@ -1,0 +1,110 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.3",
+  "serial": 42,
+  "lineage": "4896466e-a5fb-67ca-bbbe-6a89928b7747",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "yandex_compute_disk",
+      "name": "boot-disk-vm1",
+      "provider": "provider[\"registry.terraform.io/yandex-cloud/yandex\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_recreate": null,
+            "block_size": 4096,
+            "created_at": "2026-01-08T05:10:39Z",
+            "description": "",
+            "disk_placement_policy": [
+              {
+                "disk_placement_group_id": ""
+              }
+            ],
+            "folder_id": "b1gdi8d4kforcnsf5kvt",
+            "hardware_generation": [
+              {
+                "generation2_features": [],
+                "legacy_features": [
+                  {
+                    "pci_topology": "PCI_TOPOLOGY_V1"
+                  }
+                ]
+              }
+            ],
+            "id": "epd93bnbbfof5lfui24e",
+            "image_id": "fd8cd36ucbbm8asremal",
+            "kms_key_id": null,
+            "labels": {},
+            "name": "boot-disk-1",
+            "product_ids": [
+              "f2eno00ajldprda2rmr0"
+            ],
+            "size": 30,
+            "snapshot_id": "",
+            "status": "ready",
+            "timeouts": null,
+            "type": "network-hdd",
+            "zone": "ru-central1-b"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjMwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "yandex_compute_image.deb11"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "yandex_compute_image",
+      "name": "deb11",
+      "provider": "provider[\"registry.terraform.io/yandex-cloud/yandex\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "created_at": "2026-01-07T14:05:13Z",
+            "description": "",
+            "family": "",
+            "folder_id": "b1gdi8d4kforcnsf5kvt",
+            "hardware_generation": [
+              {
+                "generation2_features": [],
+                "legacy_features": [
+                  {
+                    "pci_topology": "PCI_TOPOLOGY_V1"
+                  }
+                ]
+              }
+            ],
+            "id": "fd8cd36ucbbm8asremal",
+            "labels": {},
+            "min_disk_size": 10,
+            "name": "",
+            "os_type": "LINUX",
+            "pooled": false,
+            "product_ids": [
+              "f2eno00ajldprda2rmr0"
+            ],
+            "size": 2,
+            "source_disk": null,
+            "source_family": "debian-11-oslogin",
+            "source_image": null,
+            "source_snapshot": null,
+            "source_url": null,
+            "status": "ready",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjMwMDAwMDAwMDAwMH19"
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

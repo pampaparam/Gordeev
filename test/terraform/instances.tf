@@ -19,6 +19,23 @@ resource "yandex_compute_instance" "rest-api-vm1" {
 
   metadata = {
     fqdn = "rest-api-vm1.${var.service_dns_zone}"
-    user-data = "${file("meta.yaml")}"
+    ssh-keys = "debian:${file("~/.ssh/id_rsa.pub")}"
   }
+
+  connection {
+    host = self.network_interface[0].nat_ip_address
+    type = "ssh"
+    user = "debian"
+    private_key = file("~/.ssh/id_rsa")
+  }
+
+  provisioner "remote-exec" {
+    script = "scripts/wait-vm.sh"
+  }
+
+  provisioner "local-exec" {
+  command = "cd ../provision && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i '${self.network_interface[0].nat_ip_address},' vm1.yml"
+  when    = create
+  }
+
 }
