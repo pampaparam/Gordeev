@@ -1,4 +1,10 @@
 ---
+- name: Backports
+  lineinfile:
+    path: /etc/apt/sources.list
+    regexp: '^deb.*bullseye-backports'
+    state: absent
+
 - name: Install additional packages
   apt:
     name: "{{ packages }}"
