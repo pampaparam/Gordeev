@@ -2,7 +2,7 @@
 datasource:
   Ec2:
     strict_id: false
-  data:
+  
     var1: value1
     var2: value2
 ssh_pwauth: no
@@ -18,10 +18,10 @@ write_files:
     content: |
       #!/bin/bash
 
-      apt-get update
-      apt-get install -y nginx
-      service nginx start
-      sed -i -- "s/ nginx/ Yandex Cloud - $$HOSTNAME/" /var/www/html/index.nginx-debian.html
+      zypper refresh      # ← вместо apt-get update
+      zypper install -y nginx  # ← nginx в openSUSE
+      systemctl enable nginx --now  # ← вместо service
+      sed -i -- "s/ welcome to our server/ Yandex Cloud - $$HOSTNAME/" /srv/www/htdocs/index.html
     defer: true
 runcmd:
   - ["/usr/local/etc/startup.sh"]
