@@ -1,3 +1,7 @@
 #!/bin/sh
-yc compute instance stop "${my-vm}"
-yc compute instance delete "${my-vm}"
+set -e
+
+VM_NAME="${1:-my-vm}"
+
+yc compute instance stop "$VM_NAME"
+yc compute instance delete "$VM_NAME"

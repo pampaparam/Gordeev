@@ -1,29 +1,31 @@
 #cloud-config
-datasource:
-  Ec2:
-    strict_id: false
-  
-    var1: value1
-    var2: value2
 ssh_pwauth: no
+
 users:
-- name: $USER_NAME
-  sudo: 'ALL=(ALL) NOPASSWD:ALL'
-  shell: /bin/bash
-  ssh_authorized_keys:
-  - $SSH_KEY
+  - name: $USER_NAME
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - $SSH_KEY
+
 write_files:
   - path: "/usr/local/etc/startup.sh"
     permissions: "755"
     content: |
       #!/bin/bash
 
-      zypper refresh      # ← вместо apt-get update
-      zypper install -y nginx  # ← nginx в openSUSE
-      systemctl enable nginx --now  # ← вместо service
-      sed -i -- "s/ welcome to our server/ Yandex Cloud - $$HOSTNAME/" /srv/www/htdocs/index.html
+      zypper refresh
+      zypper install -y nginx
+
+      mkdir -p /srv/www/htdocs
+      echo "Welcome to our server" > /srv/www/htdocs/index.html
+      sed -i -- "s/Welcome to our server/ Yandex Cloud - $HOSTNAME/" /srv/www/htdocs/index.html || true
+
+      systemctl enable nginx --now
     defer: true
+
 runcmd:
   - ["/usr/local/etc/startup.sh"]
+
 packages:
   - yq
