@@ -5,8 +5,8 @@ export SSH_KEY="$(cat ~/.ssh/id_ed25519.pub)"
 
 
 yc compute instance create \
-    --name my-vm \
-    --hostname my-vm \
+    --name "$vm_name" \
+    --hostname "$vm_name" \
     --memory 4 \
     --cores 2 \
     --create-boot-disk size=20,image-folder-id=standard-images,image-family=ubuntu-2204-lts \
