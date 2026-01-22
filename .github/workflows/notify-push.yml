@@ -1,0 +1,23 @@
+name: Push to Telegram
+on:
+  push:
+    branches: [ main, develop ]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Telegram notification
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.8430017466 }}  # ID чата
+        token: ${{ secrets.8430017466:AAEW71rfyYUZCAiZibHgISVj3w6glwebdNI }}  # токен бота
+        message: |
+          🚀 **Новый пуш в ${{ github.repository }}**
+          
+          **Ветка:** ${{ github.ref_name }}
+          **Коммит:** ${{ github.sha }}
+          **Автор:** ${{ github.actor }}
+          **Сообщение:** ${{ github.event.head_commit.message }}
+          
+          🔗 ${{ github.event.head_commit.url }}
