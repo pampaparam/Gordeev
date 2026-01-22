@@ -10,11 +10,10 @@ jobs:
     - name: Send Telegram notification
       uses: appleboy/telegram-action@master
       with:
-        to: ${{ secrets.8430017466 }}  # ID чата
-        token: ${{ secrets.8430017466:AAEW71rfyYUZCAiZibHgISVj3w6glwebdNI }}  # токен бота
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}  # ID чата
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}  # токен бота
         message: |
-          🚀 **Новый пуш в ${{ github.repository }}**
-          
+          "🚀 Push в ${{ github.repository }} by ${{ github.actor }}"
           **Ветка:** ${{ github.ref_name }}
           **Коммит:** ${{ github.sha }}
           **Автор:** ${{ github.actor }}
