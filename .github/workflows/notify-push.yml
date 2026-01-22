@@ -14,6 +14,7 @@ jobs:
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}  # токен бота
         message: |
           "🚀 Push в ${{ github.repository }} by ${{ github.actor }}"
+          
           **Ветка:** ${{ github.ref_name }}
           **Коммит:** ${{ github.sha }}
           **Автор:** ${{ github.actor }}
