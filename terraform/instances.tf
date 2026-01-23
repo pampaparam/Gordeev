@@ -14,7 +14,7 @@ resource "yandex_compute_instance" "bot-vm" {
   zone = "ru-central1-b"
 }
   
-  resources {
+  resource {
     cores  = 2
     memory = 2
   }
