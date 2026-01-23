@@ -1,8 +1,13 @@
+#cloud-config
 users:
   - name: debian
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
     ssh_authorized_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID/3nPDa8qiO87PeIJsYX24zLqt1zByJExfb21JLQPor alexeygordeev@MacBook-Air-Alexey.local
-
-
+      - ${file("~/.ssh/id_rsa.pub")}
+packages:
+  - git
+  - curl
+  - python3
+  - python3-pip
+  - python3-venv
