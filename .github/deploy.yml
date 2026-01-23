@@ -1,0 +1,49 @@
+name: Deploy Bot to Yandex Cloud
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 1.9.0
+        
+    - name: Terraform Init
+      run: cd terraform && terraform init
+      
+    - name: Terraform Apply
+      env:
+        YANDEX_TOKEN: ${{ secrets.YANDEX_TOKEN }}  # ← совпадает с секретом!
+        YC_CLOUD_ID: ${{ secrets.YC_CLOUD_ID }}
+        YC_FOLDER_ID: ${{ secrets.YC_FOLDER_ID }}
+      run: cd terraform && terraform apply -auto-approve
+      
+    - name: Get VM IP
+      id: vm-ip
+      run: |
+        cd terraform
+        echo "vm_ip=$(terraform output -raw vm_ip)" >> $GITHUB_OUTPUT
+        
+    - name: Deploy with Ansible
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        playbook: deploy-bot.yml
+        inventory: |
+          all:
+            hosts:
+              bot-vm:
+                ansible_host: ${{ steps.vm-ip.outputs.vm_ip }}
+                ansible_user: debian
+        options: |
+          --private-key '${{ secrets.SSH_PRIVATE_KEY }}'
+          --extra-vars "github_repo=AlexiusGordeev/telegram-bot"
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: false
+

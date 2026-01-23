@@ -1,0 +1,17 @@
+terraform.tfstate*
+*.tfstate.backup
+.terraform/
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+terraform/.terraform
+terraform/*.tfstate
+terraform/*.tfstate.backup
+meta.yaml
+terraform.tfvars
+
+# Secrets
+*.key
+*.pem
+*.json

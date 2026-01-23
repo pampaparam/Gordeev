@@ -1,8 +1,0 @@
-packages:
-  - git
-  - apt-transport-https
-  - ca-certificates
-  - curl
-  - software-properties-common
-  - gnupg2
-  - bash-completion

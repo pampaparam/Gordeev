@@ -1,0 +1,65 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    ansible_user: debian
+    ansible_ssh_private_key_file: ~/.ssh/id_rsa
+  tasks:
+    - name: Remove broken bullseye-backports repo
+      lineinfile:
+        path: /etc/apt/sources.list
+        regexp: '^deb.*bullseye-backports'
+        state: absent
+      when: ansible_distribution_release == "bullseye"
+
+    - name: Remove bullseye-backports source repo
+      lineinfile:
+        path: /etc/apt/sources.list
+        regexp: '^deb-src.*bullseye-backports'
+        state: absent
+      when: ansible_distribution_release == "bullseye"
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      register: apt_update
+      ignore_errors: yes
+
+    - name: Install Docker prerequisites
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+        state: present
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: present
+
+    - name: Ensure Docker service is running and enabled
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add user to docker group
+      user:
+        name: debian
+        groups: docker
+        append: yes
+
+
