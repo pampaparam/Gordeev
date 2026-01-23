@@ -12,6 +12,7 @@ resource "yandex_vpc_subnet" "subnet" {
 resource "yandex_compute_instance" "bot-vm" {
   name = "telegram-bot-vm"
   zone = "ru-central1-b"
+}
   
   resources {
     cores  = 2
