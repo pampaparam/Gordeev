@@ -1,0 +1,33 @@
+{
+	"name": "Development Container",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.12"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-vscode.makefile-tools",
+				"GitHub.copilot",
+				"eamodio.gitlens",
+				"ms-vscode-remote.remote-containers",
+                "sleistner.vscode-fileutils"
+			],
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.formatting.provider": "black"
+			}
+		}
+	},
+	"forwardPorts": [],
+	"remoteUser": "root"
+}
