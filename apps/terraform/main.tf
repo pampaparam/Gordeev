@@ -15,5 +15,5 @@ provider "yandex" {
 }
 
 data "yandex_compute_image" "minimal" {
-  family = "debian-12-lts"
+  family = "ubuntu-1804-lts"
 }
