@@ -4,24 +4,22 @@ resource "yandex_vpc_network" "bot-net" {
 
 resource "yandex_vpc_subnet" "bot-subnet" {
   name           = "bot-subnet"
-  zone           = "ru-central1-"
+  zone           = "ru-central1-a"
   network_id     = yandex_vpc_network.bot-net.id
   v4_cidr_blocks = ["192.168.10.0/24"]
 }
 
 resource "yandex_vpc_security_group" "ssh" {
-  name       = "ssh-access"
-  network_id = yandex_vpc_network.bot-net.id
-  
+  name        = "ssh-access"
+  network_id  = yandex_vpc_network.bot-net.id
+
+  ingress {
+    protocol       = "TCP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     protocol       = "ANY"
-    description    = "Egress any"
-  }
-  
-  ingress {
-    protocol        = "TCP"
-    port            = 22
-    v4_cidr_blocks  = ["0.0.0.0/0"]
-    description     = "SSH"
+    v4_cidr_blocks = ["0.0.0.0/0"]
   }
 }

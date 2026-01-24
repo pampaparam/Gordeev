@@ -1,6 +1,6 @@
 resource "yandex_compute_instance" "bot-vm" {
   name = "telegram-bot-vm"
-  zone = "ru-central1-b"
+  zone = "ru-central1-a"
   
   resources {
     cores  = 2
@@ -17,7 +17,7 @@ resource "yandex_compute_instance" "bot-vm" {
   
   network_interface {
     subnet_id      = yandex_vpc_subnet.bot-subnet.id
-    security_group_id = yandex_vpc_security_group.ssh.id
+    security_group_ids = [yandex_vpc_security_group.ssh.id]
     nat            = true
   }
 }

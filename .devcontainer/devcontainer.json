@@ -8,7 +8,8 @@
 		"ghcr.io/devcontainers/features/python:1": {
 			"version": "3.12"
 		},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers-extra/features/mise:1": {}
 	},
 	"customizations": {
 		"vscode": {
@@ -19,7 +20,8 @@
 				"GitHub.copilot",
 				"eamodio.gitlens",
 				"ms-vscode-remote.remote-containers",
-                "sleistner.vscode-fileutils"
+                "sleistner.vscode-fileutils",
+				"hverlin.mise-vscode"
 			],
 			"settings": {
 				"python.defaultInterpreterPath": "/usr/local/bin/python",
